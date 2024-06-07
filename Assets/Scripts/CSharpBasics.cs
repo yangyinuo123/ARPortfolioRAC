@@ -46,12 +46,12 @@ public class CSharpBasics : MonoBehaviour
     }
     private void Update()
     {
-        //float t = Time.time;
-        //if (t - previousTime > interval)
-        //{
-        //    Debug.Log(t);
-        //    previousTime = t;
-        //}
+        float t = Time.time;
+        if (t - previousTime > interval)
+        {
+            Debug.Log(t);
+            previousTime = t;
+        }
     }
 
     private void Compare2Numbers(int A, int B)
