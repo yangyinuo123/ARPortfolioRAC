@@ -5,38 +5,55 @@ using UnityEngine;
 public class ExplodeBuilding : MonoBehaviour
 {
     public float moveScale;
-    private Vector3 originVec;
+    public List<GameObject> myObjs;
+    private List<Vector3> originVecList = new List<Vector3>();
     private bool state = false;
 
     private void Start()
     {
-        originVec = this.gameObject.transform.localPosition;
+        foreach (var obj in myObjs)
+        {
+            originVecList.Add(obj.transform.localPosition);
+        }
     }
     public void OnUIExplode()
     {
-        if(!state)
+        state = !state;
+        if(state)
         {
-            MovePosition();
+            MoveAll();
         }
         else
         {
-            ResetPosition();
+            ResetAll();
         }
     }
-    private void MovePosition()
+    private void MoveAll()
     {
-        float x = this.gameObject.transform.localPosition.x;
-        float z = this.gameObject.transform.localPosition.z;
+        for (int i = 0; i < myObjs.Count; i++)
+        {
+            MovePosition(i);
+        }
+    }
+    private void ResetAll()
+    {
+        for (int i = 0; i < myObjs.Count; i++)
+        {
+            ResetPosition(i);
+        }
+    }
+    private void MovePosition(int i)
+    {
+        float x = myObjs[i].transform.localPosition.x;
+        float z = myObjs[i].transform.localPosition.z;
 
         x *= moveScale - 1;
         z *= moveScale - 1;
 
-        this.gameObject.transform.localPosition += new Vector3(x, 0, z);
-        state = true;
+        myObjs[i].transform.localPosition += new Vector3(x, 0, z);
     }
-    private void ResetPosition()
+    private void ResetPosition(int i)
     {
-        this.gameObject.transform.localPosition = originVec;
-        state = false;
+        myObjs[i].transform.localPosition = originVecList[i];
     }
 }
