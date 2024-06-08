@@ -35,7 +35,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Section.unity
     guid: e3f1a9c20b4a3db4cbf6dc7c91a96afe
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FinalExample.unity
     guid: 5abcfaa6585587f4d82a021aaeac8d6d
+  - enabled: 1
+    path: Assets/Scenes/YangYinuo.unity
+    guid: 21ab90696419e6641a8cef9f24430508
   m_configObjects: {}

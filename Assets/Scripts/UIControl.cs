@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class UIControl : MonoBehaviour
 {
-    public List<GameObject> myDesigns;
-    public List<GameObject> myButtons;
+    public List<GameObject> myDesigns = new List<GameObject>();
+    public List<GameObject> myButtons = new List<GameObject>();
 
     private int state = 0;
     private void Start()
@@ -24,7 +24,7 @@ public class UIControl : MonoBehaviour
         }
         SwithDesign(state);
     }
-    private void SwithDesign(int i)
+    private void SwithDesignWithButton(int i)
     {
         for (int j = 0; j < myDesigns.Count; j++)
         {
@@ -37,6 +37,20 @@ public class UIControl : MonoBehaviour
             {
                 myDesigns[j].SetActive(true);
                 myButtons[j].SetActive(true);
+            }
+        }
+    }
+    private void SwithDesign(int i)
+    {
+        for (int j = 0; j < myDesigns.Count; j++)
+        {
+            if (j != i)
+            {
+                myDesigns[j].SetActive(false);
+            }
+            else
+            {
+                myDesigns[j].SetActive(true);
             }
         }
     }

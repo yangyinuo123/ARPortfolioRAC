@@ -71,3 +71,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /[Aa]ssets/model/*
+
+/[Aa]ssets/FBX/5.25homework.FBX
+/[Aa]ssets/Model fbx/*
